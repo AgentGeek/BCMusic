@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bakchod Music Player</title>
+    <link
+      rel="shortcut icon"
+      href="./img/Shorticon.jpg"
+      type="image/x-icon"
+    />
+    <link rel="stylesheet" href="./css/normalize.css" />
+    <link rel="stylesheet" href="./css/style.css" />
+  </head>
+
+  <body>
+    <div class="wrap">
+      <div class="play-wrap" id="player">
+        <div class="search-bar">
+          <img src="./img/bc.png" alt="" height="50px" />
+          <input
+            type="text"
+            placeholder="Your favorite music"
+            v-model="query"
+            @keyup.enter="searchMusic"
+            @dblclick="searchMusic"
+          />
+        </div>
+        <div class="center-con">
+          <div class="song-wrapper" ref="song-wrapper">
+            <ul class="song-list" style="padding-left: 0">
+              <li v-for="item in musicList" @dblclick="playMusic(item.id)">
+                <a href="javascript:;" @click="playMusic(item.id)"></a>
+                <b>{{item.title}} - {{item.album}}</b>
+              </li>
+            </ul>
+            <img src="./img/Line.png" class="switch-line" alt="" />
+          </div>
+          <div class="player-con" :class="{playing:isPlaying}">
+            <img src="./img/PlayerBar.png" alt="" class="play-bar" />
+            <img
+              src="./img/PlayerDisc.png"
+              alt=""
+              class="disc autoRotate"
+            />
+            <img :src="musicCover" alt="" class="cover autoRotate" />
+          </div>
+          <div class="comment-wrapper" ref="comment-wrapper">
+            <h5 class="title">Trending</h5>
+            <div class="comment-list">
+              <dl v-for="item in list"@dblclick="playMusic(item.id)">
+                <a href="javascript:;" @click="playMusic(item.id)">
+                <dt>
+                  <img :src="item.image" alt="" />
+                </dt>
+                <dd class="name">{{item.title}}</dd>
+                <dd class="detail">{{item.subtitle}}</dd></a>
+              </dl>
+            </div>
+            <img src="./img/Line.png" alt="" class="right-line" />
+          </div>
+        </div>
+        <div class="audio-con">
+          <audio
+            ref="audio"
+            :src="musicUrl"
+            @play="play"
+            @pause="pause"
+            controls
+            autoplay
+            loop
+            class="myaudio"
+          ></audio>
+        </div>
+      </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="./js/index.js"></script>
+  </body>
+</html>
