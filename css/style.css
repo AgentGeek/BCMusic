@@ -98,7 +98,7 @@ a {
 
 .song-list li i {
   display: block;
-  width: 16px;
+  width: 18px;
   height: 18px;
   background-image: url('../img/PlayLogo.png');
   background-size: 100%;
@@ -140,7 +140,7 @@ a {
 
 .song-list li i {
   font-style: normal;
-  width: 100px;
+  /*width: 100px;*/
 }
 
 .song-list::-webkit-scrollbar {
