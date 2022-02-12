@@ -31,7 +31,7 @@
           <div class="song-wrapper" ref="song-wrapper">
             <ul class="song-list" style="padding-left: 0">
               <li v-for="item in musicList" @dblclick="playMusic(item.id)">
-                <a href="javascript:;" @click="playMusic(item.id)"><i></i>
+                <a href="javascript:;" @click="playMusic(item.id)" title="{{item.title}} - {{item.album}}"><i></i>
                 <b>{{item.title}} - {{item.album}}</b></a>
               </li>
             </ul>
