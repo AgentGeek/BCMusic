@@ -1,3 +1,6 @@
+a {
+  text-decoration: none;
+}
 .wrap {
   position: fixed;
   left: 0;
@@ -93,7 +96,7 @@
   background-color: rgba(240, 240, 240, 0.3);
 }
 
-.song-list li a {
+.song-list li i {
   display: block;
   width: 16px;
   height: 18px;

@@ -31,8 +31,8 @@
           <div class="song-wrapper" ref="song-wrapper">
             <ul class="song-list" style="padding-left: 0">
               <li v-for="item in musicList" @dblclick="playMusic(item.id)">
-                <a href="javascript:;" @click="playMusic(item.id)"></a>
-                <b>{{item.title}} - {{item.album}}</b>
+                <a href="javascript:;" @click="playMusic(item.id)"><i></i>
+                <b>{{item.title}} - {{item.album}}</b></a>
               </li>
             </ul>
             <img src="./img/Line.png" class="switch-line" alt="" />
